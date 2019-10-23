@@ -18,6 +18,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+        {% load static %}
+        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'first_app/css/home_page.css' %}"> 
+        <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
     <title>CurlayGurlay - Home Page</title>
 </head>
 
@@ -26,7 +30,7 @@
         <div class="row mt-5">
             <div class="dropdown col">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Home</button>
+                    aria-haspopup="true" aria-expanded="false">Home</button><p class='title'>Curlay Gurlay</p>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <a class="dropdown-item" href="/curlaygurlay/about">About Us</a>
                     <a class="dropdown-item" href="/curlaygurlay/products">Products</a>
@@ -62,8 +66,8 @@
             </a>
         </div>
         <div class='body mt-5'>
-            <h4>Choose Your Hair Type</h4>
-            <div class='hair types mt-5'>
+            <h4 class='hairtype'>Choose Your Hair Type:</h4>
+            <div class='hair_typesmt-5'>
                 <a href="/curlaygurlay/tight_curl"><img src="{% static 'first_app/images/yara.jpg' %}" alt=""></a>
                 <a href="/curlaygurlay/kinky_curl"><img src="{% static 'first_app/images/viola.jpg' %}" alt=""></a>
                 <a href="/curlaygurlay/loose_curl"><img src="{% static 'first_app/images/tracee.jpg' %}" alt=""></a>

@@ -3,3 +3,15 @@ img{
     height:300px;
     width:250px;
 }
+.hairtype{
+    font-family: 'Quicksand', sans-serif;
+
+}
+.title{
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 200px;
+}
+.hair_typesmt-5{
+    text-align: center;
+}
