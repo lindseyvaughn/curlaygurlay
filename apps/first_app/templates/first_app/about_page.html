@@ -15,9 +15,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+        {% load static %}
+      <link rel="stylesheet" href="{% static 'first_app/css/about_page.css' %}"> 
+      <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <title>CurlayGurlay - About Page</title>
 </head>
 <body>
-    ABOUT
+    <div class='container'>
+       <p class='about'>About Us</p>
+        <p>CurlayGurlay is the leading high-performance, plant-based, curly hair product, trusted by millions of consumers and thousands of artists and salons around the world. Our promise is to care for the curls, connecting healthy curls, well-being and sustainability.</p>
+        <img class='about_img'src="{% static 'first_app/images/about_page.jpg' %}" alt="">
+        <p class='contact'>Contact Us</p>
+        <p>customercare@CurlayGurlay.com</p>
+
+
+    </div>
+
 </body>
 </html>

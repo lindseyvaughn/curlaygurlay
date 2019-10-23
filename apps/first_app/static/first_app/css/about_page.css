@@ -1,0 +1,18 @@
+p{
+    font-family: 'Quicksand', sans-serif;
+}
+.about{
+    font-size: 200%;
+    font-family: 'Quicksand', sans-serif;
+}
+img{
+    position: relative;
+    left: 240px;
+    width: 400px;
+    height: 200px;
+}
+.contact{
+    font-size: 200%;
+    font-family: 'Quicksand', sans-serif;
+
+}
