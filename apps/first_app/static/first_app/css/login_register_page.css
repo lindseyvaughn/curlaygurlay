@@ -1,0 +1,18 @@
+.registration, .login{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 100px;
+    margin-left: 60px;
+    border: solid black 2px;
+    height: 600px;
+}
+.display-4{
+    text-align: center;
+}
+
+.leftButton{
+    margin-left: 170px;
+}
+.rightButton{
+    margin-left: 180px
+}
