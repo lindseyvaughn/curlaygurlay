@@ -61,3 +61,28 @@ class User (models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager ()
+
+class Purchase (models.Model):
+    total = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, related_name="purchases")
+
+class Category (models.Model):
+    category_name = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class Product (models.Model): 
+    product_name = models.CharField(max_length=255)
+    price = models.IntegerField()
+    description = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    category = models.ForeignKey(Category, related_name="products")
+    purchases = models.ManyToManyField(Purchase, related_name="products")
+
+
+
+
