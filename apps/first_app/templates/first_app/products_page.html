@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +16,55 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'first_app/css/products_page.css' %}">
+
     <title>CurlayGurlay - Products Page</title>
+
 </head>
+
 <body>
-    Products
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/curlaygurlay">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/curlaygurlay/blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/curlaygurlay/login_register">Register | Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="products">
+        <div class="left">
+            <img src="{% static 'first_app/images/kinky_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/kinky_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/kinky_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/kinky_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/kinky_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/kinky_curl_product.png' %}" alt="">
+            <br></br>
+            <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
+            <br></br>
+            <img src="{% static 'first_app/images/tight_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/tight_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/tight_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/tight_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/tight_curl_product.png' %}" alt="">
+            <img src="{% static 'first_app/images/tight_curl_product.png' %}" alt="">
+        </div>
+
+    </div>
 </body>
+
 </html>

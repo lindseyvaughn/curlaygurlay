@@ -1,0 +1,21 @@
+img{
+    height: 300px;
+    width: 100px;
+    margin-left: 60px;
+    vertical-align: top;
+}
+.description{
+    border-top: solid black 2px;
+    width: 220px;
+    height: 280px;
+    padding-left: 30px;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+.product_window{
+    display: inline-block;
+    margin-left: 100px;
+}
+.first{
+    margin-left: 270px;
+}

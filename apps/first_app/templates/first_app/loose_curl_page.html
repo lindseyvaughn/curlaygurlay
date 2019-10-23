@@ -18,6 +18,9 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'first_app/css/loose_curl_page.css' %}">
+
     <title>CurlayGurlay - Loose Curl Page</title>
 </head>
 
@@ -29,18 +32,55 @@
                     <a class="nav-link" href="/curlaygurlay">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
+                    <a class="nav-link" href="/curlaygurlay/products">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
+                    <a class="nav-link" href="/curlaygurlay/blog">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="/curlaygurlay/login_register">Register | Login</a>
                 </li>
             </ul>
         </div>
     </nav>
-    
+
+    <div class="body">
+        <p>Gurlay with the Loose Curlay</p>
+        <div class="product_images">
+            <div class="product_window first">
+                <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
+                <div class="description">
+                    <p>BEST SELLER</p>
+                    <p>SMOOTH INFUSION SHAMPOO</p>
+                    <p>nourishes to help fight hair frizz and flyaways</p>
+                    <p>$50</p>
+                    <input class="btn btn-secondary" type="button" value="Add to Cart">
+                </div>
+            </div>
+            <div class="product_window">
+                <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
+                <div class="description">
+                    <p>BEST SELLER</p>
+                    <p>SMOOTH INFUSION SHAMPOO</p>
+                    <p>nourishes to help fight hair frizz and flyaways</p>
+                    <p>$50</p>
+                    <input class="btn btn-secondary" type="button" value="Add to Cart">
+                </div>
+            </div>
+            <div class="product_window">
+                <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
+                <div class="description">
+                    <p>BEST SELLER</p>
+                    <p>SMOOTH INFUSION SHAMPOO</p>
+                    <p>nourishes to help fight hair frizz and flyaways</p>
+                    <p>$50</p>
+                    <input class="btn btn-secondary" type="button" value="Add to Cart">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </body>
 
 </html>
