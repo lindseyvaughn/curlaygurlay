@@ -15,4 +15,6 @@ urlpatterns = [
     url(r'^curlaygurlay/blog$', views.blog_page),
     url(r'^curlaygurlay/account$', views.account_page),
 
+    url(r'^curlaygurlay/cart$', views.shopping_cart_page),
+
 ]

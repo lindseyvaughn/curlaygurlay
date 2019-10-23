@@ -30,7 +30,7 @@
         <div class="row mt-5">
             <div class="dropdown col">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Home</button><p class='title'>Curlay Gurlay</p>
+                aria-haspopup="true" aria-expanded="false">Home</button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <a class="dropdown-item" href="/curlaygurlay/about">About Us</a>
                     <a class="dropdown-item" href="/curlaygurlay/products">Products</a>
@@ -39,7 +39,14 @@
                     <a class="dropdown-item" href="/curlaygurlay/account">Account</a>
                     <a class="dropdown-item" href="/logout">Logout</a>  
                 </div>
+                <a class="btn btn-secondary float-right" href="/curlaygurlay/cart">Cart</a>
+                <!-- add person in session to cart -->
+                <p class='title'>Curlay Gurlay</p>
+
             </div>
+            <!-- <div class="shopping_cart"></div>
+                    <a class="btn btn-secondary" href="/cart">Cart</a>
+            </div> -->
         </div>
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner mt-5">
@@ -66,7 +73,7 @@
             </a>
         </div>
         <div class='body mt-5'>
-            <h4 class='hairtype'>Choose Your Hair Type:</h4>
+            <h2 class='hairtype'>Choose Your Hair Type:</h2>
             <div class='hair_typesmt-5'>
                 <a href="/curlaygurlay/tight_curl"><img src="{% static 'first_app/images/yara.jpg' %}" alt=""></a>
                 <a href="/curlaygurlay/kinky_curl"><img src="{% static 'first_app/images/viola.jpg' %}" alt=""></a>

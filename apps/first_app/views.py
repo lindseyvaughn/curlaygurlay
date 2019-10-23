@@ -71,3 +71,6 @@ def blog_page(request):
 
 def account_page(request):
     return render(request, 'first_app/account_page.html')
+
+def shopping_cart_page(request):
+    return render (request, 'first_app/shopping_cart_page.html')
