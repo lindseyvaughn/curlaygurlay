@@ -1,0 +1,52 @@
+
+p{
+    font-family: 'Quicksand', sans-serif;
+}
+.blog{
+    font-size: 200%;
+    font-family: 'Quicksand', sans-serif;
+}
+.box1{
+    border-style: groove;
+    border-color: black;
+    border-width: thin;
+    width: 140px;
+    height: 100px;
+    left: 200px;
+    position: relative;
+    bottom:-10px;
+    text-align: center;
+    background-color: rgb(189, 231, 245);
+    
+}
+.box2{
+    border-style: groove;
+    border-color: black;
+    border-width: thin;
+    width: 140px;
+    height: 100px;
+    position: relative;
+    left: 400px;
+    position: relative;
+    bottom:90px;
+    text-align: center;
+    background-color: rgb(189, 231, 245);
+}
+.box3{
+    border-style: groove;
+    border-color: black;
+    border-width: thin;
+    width: 140px;
+    height: 100px;
+    position: relative;
+    left: 600px;
+    position: relative;
+    bottom:190px;
+    text-align: center;
+    background-color: rgb(189, 231, 245);
+}
+.faveblogs{
+    font-size: 200%;
+    font-family: 'Quicksand', sans-serif;
+}
+
