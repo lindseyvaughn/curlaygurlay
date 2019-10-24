@@ -156,8 +156,8 @@ body {
 }
 
 body {
-  background: rgb(178, 240, 178);
-  background: linear-gradient(to right, rgb(180, 243, 180), rgb(177, 245, 177));
+  background: lightblue;
+  background: linear-gradient(to right, rgb(185, 222, 235), rgb(182, 220, 233));
 }
 
 .card-signin {
@@ -174,10 +174,12 @@ body {
 }
 
 .card-signin .card-img-left {
-  width: 45%;
   /* Link to your background image using in the property below! */
-  background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
-  background-size: cover;
+  background: scroll center url('../images/login_pic.jpg');
+  height:800px;
+  width: 275px;
+
+
 }
 
 .card-signin .card-body {
@@ -267,4 +269,9 @@ body {
 .btn-facebook {
   color: white;
   background-color: #3b5998;
+}
+.title{
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 150px;
 }

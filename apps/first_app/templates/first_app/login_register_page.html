@@ -25,8 +25,9 @@
             {% endfor %}
         </ul>
         {% endif %}
+        <a class="btn btn-secondary mt-5" href="/curlaygurlay">Home</a>
         <div>
-            <a class="btn btn-secondary mt-5" href="/curlaygurlay">Home</a>
+            <p class='title'>Curlay Gurlay</p>
         </div>
 
         <body>
@@ -39,22 +40,23 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title text-center">Register</h5>
-                                <form class="form-signin">
+                                <form class="form-signin" method="POST" action='/register_user'>
+                                    {%csrf_token%}
                                     <div class="form-label-group">
                                         <input type="first_name" id="inputfirst" class="form-control"
-                                            placeholder="First Name" required>
+                                            placeholder="First Name" name='first_name' required>
                                         <label for="inputfirst">First Name</label>
                                     </div>
 
                                     <div class="form-label-group">
                                         <input type="last_name" id="inputlast" class="form-control"
-                                            placeholder="Last Name" required>
+                                            placeholder="Last Name" name='last_name'required>
                                         <label for="inputlast">Last Name</label>
                                     </div>
 
                                     <div class="form-label-group">
                                         <input type="email" id="inputEmail" class="form-control"
-                                            placeholder="Email address" required>
+                                            placeholder="Email address" name='email' required>
                                         <label for="inputEmail">Email address</label>
                                     </div>
 
@@ -62,13 +64,13 @@
 
                                     <div class="form-label-group">
                                         <input type="password" id="inputPassword" class="form-control"
-                                            placeholder="Password" required>
+                                            placeholder="Password" name='password' required>
                                         <label for="inputPassword">Password</label>
                                     </div>
 
                                     <div class="form-label-group">
                                         <input type="password" id="inputConfirmPassword" class="form-control"
-                                            placeholder="Password" required>
+                                            placeholder="Password" name='confirm_password' required>
                                         <label for="inputConfirmPassword">Confirm password</label>
                                     </div>
 
@@ -96,16 +98,17 @@
                         <div class="card card-signin my-5">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Sign In</h5>
-                                <form class="form-signin">
+                                <form class="form-signin" method='POST' action='/login_user'>
+                                    {%csrf_token%}
                                     <div class="form-label-group">
                                         <input type="email" id="inputEmail" class="form-control"
-                                            placeholder="Email address" required autofocus>
+                                            placeholder="Email address" name='email' required autofocus>
                                         <label for="inputEmail">Email address</label>
                                     </div>
 
                                     <div class="form-label-group">
                                         <input type="password" id="inputPassword" class="form-control"
-                                            placeholder="Password" required>
+                                            placeholder="Password" name='password' required>
                                         <label for="inputPassword">Password</label>
                                     </div>
 
