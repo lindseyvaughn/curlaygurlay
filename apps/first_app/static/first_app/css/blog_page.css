@@ -50,3 +50,27 @@ p{
     font-family: 'Quicksand', sans-serif;
 }
 
+.article{
+    margin-left: 70px;
+}
+.health_link{
+    margin-left: 600px;
+    margin-bottom: 100px;
+    position: relative;
+    bottom: 200px;
+    border-style: solid;
+    border-color: lightblue;
+    width: 380px;
+    height: 30px;
+
+}
+.blogimg{
+    height: 200px;
+    width: 200px;
+    margin-left: 700px;
+    position: relative;
+    bottom: 260px;
+    
+
+
+}
