@@ -84,15 +84,17 @@
               </tr>
             </thead>
             <tbody>
+              {% for prod in prods %}
               <tr>
                 <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                <td>Product Name Dada</td>
+                <td>{{ prod.product_name}}</td>
                 <td>In stock</td>
                 <td><input class="form-control" type="text" value="1" /></td>
                 <td class="text-right">124,90 €</td>
                 <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
               </tr>
-              <tr>
+              {% endfor %}
+              <!-- <tr>
                 <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
                 <td>Product Name Toto</td>
                 <td>In stock</td>
@@ -107,7 +109,7 @@
                 <td><input class="form-control" type="text" value="1" /></td>
                 <td class="text-right">70,00 €</td>
                 <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-              </tr>
+              </tr> -->
               <tr>
                 <td></td>
                 <td></td>
