@@ -68,7 +68,7 @@ def create_product (request):
 
 
 def home_page(request):
-    return render(request, 'first_app/home_page.html', context)
+    return render(request, 'first_app/home_page.html')
 
 def loose_curl_page(request):
     products = Product.objects.filter(hair_type="loose_curl")
