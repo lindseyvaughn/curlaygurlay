@@ -51,8 +51,8 @@
         <div class="product">
             {% for product in products %}
             <div class="product">
-                <img class="img" src="{% static product.img_url %}" alt="">
-                <p>{{product.product_name}}</p>
+                <img src="/static/first_app/images/{{ product.img_url }}" alt="">
+                <p class="top">{{product.product_name}}</p>
                 <p>{{product.description}}</p>
                 <p>{{product.price}}</p>
                 <a href="/addToCart/{{product.id}}" class="btn btn-secondary">Add to Cart</a>

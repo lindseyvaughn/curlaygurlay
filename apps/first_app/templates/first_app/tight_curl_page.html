@@ -18,7 +18,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    {{% load static %}
+    {% load static %}
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'first_app/css/tight_curl_page.css' %}"> 
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -51,8 +51,8 @@
         <div class="product">
             {% for product in products %}
             <div class="product">
-                <img class="img" src="{% static product.img_url %}" alt="">
-                <p>{{product.product_name}}</p>
+                <img src="/static/first_app/images/{{ product.img_url }}" alt="">
+                <p class="top">{{product.product_name}}</p>
                 <p>{{product.description}}</p>
                 <p>{{product.price}}</p>
                 <a href="/addToCart/{{product.id}}" class="btn btn-secondary">Add to Cart</a>
