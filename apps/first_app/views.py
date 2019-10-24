@@ -116,13 +116,24 @@ def blog_page(request):
 def account_page(request):
     return render(request, 'first_app/account_page.html')
 
+#################################################
+#               SHOPPING CART PAGE
+#################################################
 def shopping_cart_page(request):
-    return render (request, 'first_app/shopping_cart_page.html')
-
+    context = {
+        'prods' : Product.objects.all()
+    }
+    return render (request, 'first_app/shopping_cart_page.html', context)
+#################################################
+#               ADD TO CART ROUTE
+#################################################
 def addToCart(request, product_id):
+    if 'id' not in request.session:
+        return redirect ("/curlaygurlay/login_register")
+
     if 'cart' not in request.session:
         cartObj ={
-            # 'userid' : request.session['user_id'],
+            'userid' : request.session['id'],
             'cart_items': []
         }
         request.session['cart'] = cartObj
