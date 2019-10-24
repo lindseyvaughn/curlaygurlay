@@ -13,30 +13,41 @@
 <body>
     <div class="container col-10">
         <h1>Add a New Product</h1>
-        <form action="/admin" method="POST">
+        <form action="/create_product" method="POST">
+            {% csrf_token %}
             <p>Hair Type: <input class="form-control form-control-lg" type="text" name="hair_type"></p>
             <p>Img URL: <input class="form-control form-control-lg" type="text" name="img_url"></p>
             <p>Product Name: <input class="form-control form-control-lg" type="text" name="product_name"></p>
             <p>Description: <input class="form-control form-control-lg" type="text" name="description"></p>
-            <p>Price: <input class="form-control form-control-lg" type="text" name="price"></p>
+            <p>Price: <input class="form-control form-control-lg" type="number" name="price"></p>
+            <p>Category <select class="form-control" id="exampleFormControlSelect1" name="category">
+                {% for category in all_categories %}
+                <option value="{{category.id}}">{{category.category_name}}</option>
+                {% endfor %}     
+            </select></p>
             <input class="btn btn-danger" type="submit">
         </form>
+
         <table class="table mt-5">
             <thead class="thead-dark">
                 <tr>
+                    <th scope="col">#</th>
                     <th scope="col">Product Name</th>
                     <th scope="col">Hair Type</th>
                     <th scope="col">Description</th>
                     <th scope="col">Price</th>
+                    <th scope="col">Product Category</th>
                 </tr>
             </thead>
             <tbody>
-                {% for product in all_products.all%}
+                {% for product in all_products %}
                 <tr>
+                    <td>{{ product.id }}</a></td>
                     <td>{{ product.product_name }}</a></td>
                     <td>{{ product.hair_type }}</td>
-                    <td>{{ roduct.description }}</td>
-                    <td>{{ roduct.price }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.product_category.category_name }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

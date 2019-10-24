@@ -76,7 +76,7 @@ class Product (models.Model):
     description = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    category = models.ForeignKey(Category, related_name="products")
+    product_category = models.ForeignKey(Category, related_name="products")
 
 class Purchase (models.Model):
     total = models.IntegerField()

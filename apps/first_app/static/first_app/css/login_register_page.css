@@ -1,3 +1,6 @@
+body{
+    background-color: #FCF8F7;
+}
 .registration, .login{
     display: inline-block;
     vertical-align: top;

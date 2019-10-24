@@ -49,7 +49,11 @@ def logout (request):
 
 
 def admin (request):
-    return render(request, 'first_app/admin.html')
+    context = {
+        "all_products" : Product.objects.all(), 
+        "all_categories" : Category.objects.all()
+    }
+    return render(request, 'first_app/admin.html', context)
 
 def create_product (request):
     new_product = Product.objects.create(
@@ -57,46 +61,45 @@ def create_product (request):
         description = request.POST["description"],
         price = request.POST["price"],
         hair_type = request.POST["hair_type"],
-        img_url = request.POST["img_url"]
+        img_url = request.POST["img_url"],
+        product_category = Category.objects.get(id=request.POST["category"])
     )
-    all_products = Product.objects.all
-
-    context = {
-        "all_products" : all_products
-    }
     return redirect ("/admin")
 
 
 def home_page(request):
-    return render(request, 'first_app/home_page.html', context)
+    return render(request, 'first_app/home_page.html')
 
 def loose_curl_page(request):
-    products = Product.objects.filter(hair_type="loose_curl")
+    products = Product.objects.filter(hair_type="Loose Curl")
+    for product in products:
+        print(product.img_url)
+    print(products, "====================")
     context = {
         "products" : products
     }
     return render(request, 'first_app/loose_curl_page.html', context)
 
 def kinky_curl_page(request):
-    products = Product.objects.filter(hair_type="loose_curl")
+    products = Product.objects.filter(hair_type="Kinky Curl")
     context = {
         "products" : products
     }
-    return render(request, 'first_app/kinky_curl_page.html')
+    return render(request, 'first_app/kinky_curl_page.html', context)
 
 def tight_curl_page(request):
-    products = Product.objects.filter(hair_type="loose_curl")
+    products = Product.objects.filter(hair_type="Tight Curl")
     context = {
         "products" : products
     }
-    return render(request, 'first_app/tight_curl_page.html')
+    return render(request, 'first_app/tight_curl_page.html', context)
 
 def about_page(request):
     return render(request, 'first_app/about_page.html')
 
 def products_page(request):
     products = Product.objects.all()
-    paginator = Paginator(products, 3)
+    paginator = Paginator(products, 6)
 
     if "page" in request.GET:
         page = request.GET.get("page")

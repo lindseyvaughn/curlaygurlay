@@ -40,16 +40,21 @@
             </ul>
         </div>
     </nav>
-    <div class="list_of_products">
+    <div class="container alighn-center">
+    <div class="product row">
         {% for product in products %}
+        <div class="mr-5 text-center">
             <img src="/static/first_app/images/{{ product.img_url }}" alt="">
-            <p>{{ product.product_name }}</p>
+            <p class="mt-4">{{ product.product_name }}</p>
             <p>{{ product.description }}</p>
             <p>{{ product.price }}</p>
+        </div>
         {% endfor %}
-
+    </div>
+    
+    <div class="list_of_products ">
         <div class="pagination">
-            <span class="step-links">
+            <span class="step-links alighn-center">
                 {% if products.has_previous %}
                     <a href="?page=1">&laquo; first</a>
                     <a href="?page={{ products.previous_page_number }}">previous</a>
@@ -67,6 +72,7 @@
         </div>
 
     </div>
+</div>
 </body>
 
 </html>
