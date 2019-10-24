@@ -1,6 +1,8 @@
 from django.conf.urls import url
 from . import views
 urlpatterns = [
+    url(r'^admin$', views.admin),
+
     url(r'^curlaygurlay/login_register$', views.login_register_page),
     url(r'^register_user$', views.register_user),
     url(r'^login_user$', views.login_user),
@@ -16,5 +18,7 @@ urlpatterns = [
     url(r'^curlaygurlay/account$', views.account_page),
 
     url(r'^curlaygurlay/cart$', views.shopping_cart_page),
+
+    url(r'^addToCart/(?P<product_id>\d+)$', views.addToCart),
 
 ]

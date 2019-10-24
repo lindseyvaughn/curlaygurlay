@@ -19,7 +19,9 @@
         crossorigin="anonymous"></script>
 
     {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'first_app/css/loose_curl_page.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
 
     <title>CurlayGurlay - Loose Curl Page</title>
 </head>
@@ -32,7 +34,7 @@
                     <a class="nav-link" href="/curlaygurlay">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/curlaygurlay/products">Products</a>
+                    <a class="nav-link" href="/curlaygurlay/products">All Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/curlaygurlay/blog">Blog</a>
@@ -46,41 +48,19 @@
 
     <div class="body">
         <p>Gurlay with the Loose Curlay</p>
-        <div class="product_images">
-            <div class="product_window first">
-                <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
-                <div class="description">
-                    <p>BEST SELLER</p>
-                    <p>SMOOTH INFUSION SHAMPOO</p>
-                    <p>nourishes to help fight hair frizz and flyaways</p>
-                    <p>$50</p>
-                    <input class="btn btn-secondary" type="button" value="Add to Cart">
-                </div>
+        <div class="product">
+            {% for product in products %}
+            <div class="product">
+                <img class="img" src="{% static product.img_url %}" alt="">
+                <p>{{product.product_name}}</p>
+                <p>{{product.description}}</p>
+                <p>{{product.price}}</p>
+                <a href="/addToCart/{{product.id}}" class="btn btn-secondary">Add to Cart</a>
             </div>
-            <div class="product_window">
-                <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
-                <div class="description">
-                    <p>BEST SELLER</p>
-                    <p>SMOOTH INFUSION CONDITIONER</p>
-                    <p>nourishes to help fight hair frizz and flyaways</p>
-                    <p>$50</p>
-                    <input class="btn btn-secondary" type="button" value="Add to Cart">
-                </div>
-            </div>
-            <div class="product_window">
-                <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
-                <div class="description">
-                    <p>BEST SELLER</p>
-                    <p>BE CURLY</p>
-                    <p>nourishes to help fight hair frizz and flyaways</p>
-                    <p>$50</p>
-                    <input class="btn btn-secondary" type="button" value="Add to Cart">
-                </div>
-            </div>
-
+            {% endfor %}
         </div>
-
     </div>
+
 </body>
 
 </html>

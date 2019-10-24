@@ -62,12 +62,6 @@ class User (models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager ()
 
-class Purchase (models.Model):
-    total = models.IntegerField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, related_name="purchases")
-
 class Category (models.Model):
     category_name = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -75,13 +69,21 @@ class Category (models.Model):
 
 
 class Product (models.Model): 
+    hair_type = models.CharField(max_length=255, null=True)
+    img_url = models.CharField(max_length=255, null=True)
     product_name = models.CharField(max_length=255)
     price = models.IntegerField()
     description = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, related_name="products")
-    purchases = models.ManyToManyField(Purchase, related_name="products")
+
+class Purchase (models.Model):
+    total = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, related_name="purchases")
+    products = models.ForeignKey(Product, related_name="purchases", null=True)
 
 
 

@@ -40,28 +40,30 @@
             </ul>
         </div>
     </nav>
-    <div class="products">
-        <div class="left">
-            <img src="{% static 'first_app/images/kinky_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/kinky_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/kinky_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/kinky_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/kinky_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/kinky_curl_product.png' %}" alt="">
-            <br></br>
-            <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/loose_curl_product.png' %}" alt="">
-            <br></br>
-            <img src="{% static 'first_app/images/tight_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/tight_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/tight_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/tight_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/tight_curl_product.png' %}" alt="">
-            <img src="{% static 'first_app/images/tight_curl_product.png' %}" alt="">
+    <div class="list_of_products">
+        {% for product in products %}
+            <img src="/static/first_app/images/{{ product.img_url }}" alt="">
+            <p>{{ product.product_name }}</p>
+            <p>{{ product.description }}</p>
+            <p>{{ product.price }}</p>
+        {% endfor %}
+
+        <div class="pagination">
+            <span class="step-links">
+                {% if products.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ products.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ products.number }} of {{ products.paginator.num_pages }}.
+                </span>
+
+                {% if products.has_next %}
+                <a href="?page={{ products.next_page_number }}">next</a>
+                <a href="?page={{ products.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
         </div>
 
     </div>
