@@ -1,25 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-        {% load static %}
-        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'first_app/css/blog_page.css' %}"> 
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'first_app/css/blog_page.css' %}">
     <title>CurlayGurlay Blog Page</title>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/curlaygurlay">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/curlaygurlay/blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/curlaygurlay/login_register">Register | Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <script> var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('existing-iframe-example', {
+                events: {
+                    'onReady': onPlayerReady,
+                }
+            });
+        }
+        function onPlayerReady(event) {
+            document.getElementById('existing-iframe-example').style.borderColor = '#FF6D00';
+        }
+        $(document).ready(function () {
+            $.get('https://api.nytimes.com/svc/search/v2/articlesearch.json?q=beauty&api-key=3vV007lbGYtAKmPPk8lHB7wvZd2ddeSD', function (data) {
+                console.log(data);
+                $('#health').html(data.response.docs[5].headline.main + '<a href="' + data.response.docs[5].web_url + '"> | Full Article Here! </a>')
+            });
+        })
+    </script>
 </head>
+
 <body>
     <div class='container'>
         <p class='blog'>The CurlayGurlay Blog</p>
@@ -27,14 +60,25 @@
             <p class='beauty'>Beauty</p>
         </div>
         <div class='box2'>
-                <p class='health'>Health</p>
+            <p class='health'>Health</p>
         </div>
         <div class='box3'>
-                <p class='gurlaydaily'>Gurlay Dailayy</p>
+            <p class='gurlaydaily'>Gurlay Dailayy</p>
         </div>
-       <p class='faveblogs'>Our Blog</p>
-       <p> For all of you curly-haired mavens out there, get ready to let those locks loose. We’ve got the dish on the best advice, style tips and beauty hacks for your spiral mop top. Ditch unruly strands and frizz, up your style factor and flaunt those coils. If you’ve been blessed with a curly coif, you’re in luck. We gathered a collection of the best curly hair beauty blogs that are sure to take the kink outta your curls.</p>
+        <p class='faveblogs'>Our Blog</p>
+        <p> For all of you curly-haired mavens out there, get ready to let those locks loose. We’ve got the dish on the
+            best advice, style tips and beauty hacks for your spiral mop top. Ditch unruly strands and frizz, up your
+            style factor and flaunt those coils. If you’ve been blessed with a curly coif, you’re in luck. We gathered a
+            collection of the best curly hair beauty blogs that are sure to take the kink outta your curls.</p>
 
     </div>
+    <div class='article'>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/LcFLIDySwk8" frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p id='health' class='health_link'></p>
+        <img class='blogimg' src="{% static 'first_app/images/blog.png' %}" alt="">
+    </div>
 </body>
+
 </html>

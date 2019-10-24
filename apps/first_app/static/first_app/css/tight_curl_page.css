@@ -1,15 +1,23 @@
-body{
+body {
     background-color: #FCF8F7;
 }
-img{
+
+img {
     width: 100px;
     height: 300px;
 }
-.product{
+
+.product {
     display: inline-block;
     vertical-align: top;
     margin-left: 100px;
 }
-.top{
+
+.top {
     border-top: black 2px solid;
+}
+
+.header {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
 }

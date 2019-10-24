@@ -13,3 +13,7 @@ img{
 .top{
     border-top: black 2px solid;
 }
+.header{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+}
