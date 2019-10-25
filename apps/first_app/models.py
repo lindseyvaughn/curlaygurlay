@@ -89,6 +89,7 @@ class Purchase (models.Model):
     products = models.ForeignKey(Product, related_name="purchases", null=True)
 
 
+
 # class GetOrder(PayPalClient):
 #     """You can use this function to retrieve an order by passing order ID as an argument""" 
 #     def get_order(self, order_id):

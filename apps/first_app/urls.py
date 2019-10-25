@@ -26,6 +26,8 @@ urlpatterns = [
     url(r'^curlaygurlay/cart$', views.shopping_cart_page),
     url(r'^addToCart/(?P<product_id>\d+)$', views.addToCart),
 
+    url(r'^delete_item/(?P<product_id>\d+)$', views.delete_item),
+
     url(r'^curlaygurlay/checkout$', views.checkout_page),
     url(r'^curlaygurlay/checkout/paypal$', views.paypal_page),
 

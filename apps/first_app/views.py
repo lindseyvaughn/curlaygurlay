@@ -6,9 +6,9 @@ import bcrypt
 from django.core.paginator import Paginator
 
 
-localCart = {
-    'cart' : []
-}
+# localCart = {
+#     'cart' : []
+# }
 #################################################
 #               LOGIN/REGISTRATION
 #################################################
@@ -147,9 +147,19 @@ def products_page(request):
 #               SHOPPING CART PAGE
 #################################################
 def shopping_cart_page(request):
-    print(localCart['cart'])
+    print(request.session['cart'])
+
+    cart = []
+    total = 0
+
+    for product_id in request.session['cart']:
+        prod = Product.objects.get(id=product_id)
+        cart.append(prod)
+        total += prod.price
+
     context = {
-        'prods' : localCart['cart']
+        'total' : total,
+        'prods' : cart
     }
     return render (request, 'first_app/shopping_cart_page.html', context)
 #################################################
@@ -161,36 +171,32 @@ def addToCart(request, product_id):
 
     if 'cart' not in request.session:
         print("Creating a cart")
-        # cartObj ={
-        #     'userid' : request.session['id'],
-        #     'cart_items': []
-        # }
-        # cartObj = [
-        #     {'cart' : []}
-        # ]
+       
         request.session['cart'] = []
     else :
         print("In adding to cart route")
         prod  = Product.objects.get(id= product_id)
         print(prod.product_name)
         print('*'*80)
-        # cart = request.session['cart'][0]
-        # print("Cart: ", cart)
-        # cart['cart'].append(prod)
-        # print("Updated_Cart: ", cart)
 
-        # this gives non serializable error
-        # request.session['cart'] = cart
-        # print('*'*80)
+        cart = request.session['cart']
+        cart.append(product_id)
+        request.session['cart'] = cart
 
-        request.session['cart'].append(prod)
         print()
         print(request.session['cart'])
-        # localCart['cart'].append(prod)
-        # print(localCart)
-    # print(request.session['cart'])
 
-    return redirect("/curlaygurlay/loose_curl")
+    return redirect("/curlaygurlay/cart")
+
+#################################################
+#            Delete item from Cart Page
+#################################################
+def delete_item(request, product_id):
+    cart = request.session['cart']
+    cart.remove(product_id)
+    request.session['cart'] = cart
+
+    return redirect("/curlaygurlay/cart")
 
 #################################################
 #               Checkout Page
