@@ -10,8 +10,10 @@
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+  {% load static %}
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'first_app/css/shopping_cart.css' %}">  
 
   <title>CurlayGurlay - Shopping Cart</title>
 </head>
@@ -54,7 +56,7 @@
               </button>
             </div>
           </div>
-          <a class="btn btn-success btn-sm ml-3" href="cart.html">
+          <a class="btn btn-success btn-sm ml-3" href="/curlaygurlay/cart">
             <i class="fa fa-shopping-cart"></i> Cart
             <span class="badge badge-light"></span>
           </a>
@@ -86,37 +88,21 @@
             <tbody>
               {% for prod in prods %}
               <tr>
-                <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                <td>{{ prod.product_name}}</td>
+                <td><img class="pic" src="/static/first_app/images/{{ prod.img_url }}" alt=""></td>
+                <td>{{ prod.product_name }}</td>
                 <td>In stock</td>
                 <td><input class="form-control" type="text" value="1" /></td>
-                <td class="text-right">124,90 €</td>
+                <td class="text-right">{{prod.price}}</td>
                 <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
               </tr>
               {% endfor %}
-              <!-- <tr>
-                <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                <td>Product Name Toto</td>
-                <td>In stock</td>
-                <td><input class="form-control" type="text" value="1" /></td>
-                <td class="text-right">33,90 €</td>
-                <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-              </tr>
-              <tr>
-                <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                <td>Product Name Titi</td>
-                <td>In stock</td>
-                <td><input class="form-control" type="text" value="1" /></td>
-                <td class="text-right">70,00 €</td>
-                <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-              </tr> -->
               <tr>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td>Sub-Total</td>
-                <td class="text-right">255,90 €</td>
+                <td class="text-right">$</td>
               </tr>
               <tr>
                 <td></td>
@@ -124,7 +110,7 @@
                 <td></td>
                 <td></td>
                 <td>Shipping</td>
-                <td class="text-right">6,90 €</td>
+                <td class="text-right">$5.90</td>
               </tr>
               <tr>
                 <td></td>
@@ -132,7 +118,7 @@
                 <td></td>
                 <td></td>
                 <td><strong>Total</strong></td>
-                <td class="text-right"><strong>346,90 €</strong></td>
+                <td class="text-right"><strong>$</strong></td>
               </tr>
             </tbody>
           </table>
@@ -141,7 +127,7 @@
       <div class="col mb-2">
         <div class="row">
           <div class="col-sm-12  col-md-6">
-            <button class="btn btn-block btn-light">Continue Shopping</button>
+            <a class="btn btn-lg btn-block btn-secondary text-uppercase" href="/curlaygurlay/products">Continue Shopping</a>
           </div>
           <div class="col-sm-12 col-md-6 text-right">
             <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>

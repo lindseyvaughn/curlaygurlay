@@ -5,7 +5,12 @@ import bcrypt
 
 from django.core.paginator import Paginator
 
-
+localCart = {
+    'cart' : []
+}
+#################################################
+#               LOGIN/REGISTRATION
+#################################################
 def login_register_page(request):
     return render (request, 'first_app/login_register_page.html')
 
@@ -47,7 +52,17 @@ def logout (request):
     request.session.clear()
     return redirect ("/curlaygurlay")
 
+#################################################
+#                ACCOUNT PAGE
+#################################################
 
+def account_page(request):
+    return render(request, 'first_app/account_page.html')
+
+
+#################################################
+#               ADMIN PAGE
+#################################################
 def admin (request):
     context = {
         "all_products" : Product.objects.all(), 
@@ -66,10 +81,28 @@ def create_product (request):
     )
     return redirect ("/admin")
 
-
+#################################################
+#               HOME PAGE
+#################################################
 def home_page(request):
     return render(request, 'first_app/home_page.html')
 
+#################################################
+#               BLOG PAGE
+#################################################
+def blog_page(request):
+    return render(request, 'first_app/blog_page.html')
+
+#################################################
+#               ABOUT PAGE
+#################################################
+def about_page(request):
+    return render(request, 'first_app/about_page.html')
+
+
+#################################################
+#               HAIR TYPES
+#################################################
 def loose_curl_page(request):
     products = Product.objects.filter(hair_type="Loose Curl")
     for product in products:
@@ -94,9 +127,9 @@ def tight_curl_page(request):
     }
     return render(request, 'first_app/tight_curl_page.html', context)
 
-def about_page(request):
-    return render(request, 'first_app/about_page.html')
-
+#################################################
+#               PRODUCTS PAGE
+#################################################
 def products_page(request):
     products = Product.objects.all()
     paginator = Paginator(products, 6)
@@ -110,18 +143,14 @@ def products_page(request):
 
     return render(request, 'first_app/products_page.html', {'products' : products})
 
-def blog_page(request):
-    return render(request, 'first_app/blog_page.html')
-
-def account_page(request):
-    return render(request, 'first_app/account_page.html')
 
 #################################################
 #               SHOPPING CART PAGE
 #################################################
 def shopping_cart_page(request):
+    print(localCart['cart'])
     context = {
-        'prods' : Product.objects.all()
+        'prods' : localCart['cart']
     }
     return render (request, 'first_app/shopping_cart_page.html', context)
 #################################################
@@ -132,19 +161,31 @@ def addToCart(request, product_id):
         return redirect ("/curlaygurlay/login_register")
 
     if 'cart' not in request.session:
-        cartObj ={
-            'userid' : request.session['id'],
-            'cart_items': []
-        }
+        print("Creating a cart")
+        # cartObj ={
+        #     'userid' : request.session['id'],
+        #     'cart_items': []
+        # }
+        cartObj = [
+            {'cart' : []}
+        ]
         request.session['cart'] = cartObj
     else :
+        print("In adding to cart route")
         prod  = Product.objects.get(id= product_id)
-        cartObj = request.session['cart']
-        cartObj['cart_items'].append(prod)
-        print(cartObj['cart_items'])
-        # request.session['cart'] = cartObj
-        request.session['cart'] = "New cart"
+        print(prod.product_name)
+        print('*'*80)
+        # cart = request.session['cart'][0]
+        # print("Cart: ", cart)
+        # cart['cart'].append(prod)
+        # print("Updated_Cart: ", cart)
 
-    print(request.session['cart'])
+        # this gives non serializable error
+        # request.session['cart'] = cart
+        # print('*'*80)
+
+        localCart['cart'].append(prod)
+        print(localCart)
+    # print(request.session['cart'])
 
     return redirect("/curlaygurlay/loose_curl")

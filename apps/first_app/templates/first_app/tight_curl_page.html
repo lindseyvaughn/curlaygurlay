@@ -20,7 +20,7 @@
 
     {% load static %}
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'first_app/css/tight_curl_page.css' %}"> 
+    <link rel="stylesheet" href="{% static 'first_app/css/tight_curl_page.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
 
     <title>CurlayGurlay - Tight Curl Page</title>
@@ -42,6 +42,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/curlaygurlay/login_register">Register | Login</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -54,7 +57,7 @@
                 <img src="/static/first_app/images/{{ product.img_url }}" alt="">
                 <p class="top">{{product.product_name}}</p>
                 <p>{{product.description}}</p>
-                <p>{{product.price}}</p>
+                <p>${{product.price}}</p>
                 <a href="/addToCart/{{product.id}}" class="btn btn-secondary">Add to Cart</a>
             </div>
             {% endfor %}
