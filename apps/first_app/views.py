@@ -48,7 +48,7 @@ def login_user(request):
             request.session["id"] = user.id
             return redirect("/curlaygurlay")
 
-def logout (request):
+def logout(request):
     request.session.clear()
     return redirect ("/curlaygurlay")
 
@@ -143,6 +143,17 @@ def products_page(request):
 
     return render(request, 'first_app/products_page.html', {'products' : products})
 
+<<<<<<< HEAD
+=======
+def blog_page(request):
+    return render(request, 'first_app/blog_page.html')
+
+def account_page(request):
+    context={
+        'user':User.objects.get(id=request.session['id'])
+    }
+    return render(request, 'first_app/account_page.html', context)
+>>>>>>> 3cde0522641c5b768ac635769afde50a1e609588
 
 #################################################
 #               SHOPPING CART PAGE

@@ -14,6 +14,7 @@ img {
     transition: .5s ease;
     backface-visibility: hidden;
 }
+<<<<<<< HEAD
 
 .middle {
     transition: .5s ease;
@@ -47,4 +48,9 @@ img {
 
 .products_list {
     margin-left: 200px;
+=======
+.button{
+    position: relative;
+    left: 900px;
+>>>>>>> 3cde0522641c5b768ac635769afde50a1e609588
 }

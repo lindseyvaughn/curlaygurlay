@@ -17,3 +17,7 @@ img{
     font-family: 'Quicksand', sans-serif;
     font-size: 30px;
 }
+.button{
+    position: relative;
+    left: 900px;
+}
