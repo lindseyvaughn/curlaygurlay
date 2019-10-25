@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -13,7 +16,7 @@
   {% load static %}
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'first_app/css/shopping_cart.css' %}">  
+  <link rel="stylesheet" href="{% static 'first_app/css/shopping_cart.css' %}">
 
   <title>CurlayGurlay - Shopping Cart</title>
 </head>
@@ -127,15 +130,88 @@
       <div class="col mb-2">
         <div class="row">
           <div class="col-sm-12  col-md-6">
-            <a class="btn btn-lg btn-block btn-secondary text-uppercase" href="/curlaygurlay/products">Continue Shopping</a>
+            <a class="btn btn-lg btn-block btn-secondary text-uppercase" href="/curlaygurlay/products">Continue
+              Shopping</a>
           </div>
           <div class="col-sm-12 col-md-6 text-right">
-            <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+            <a class="btn btn-lg btn-block btn-secondary text-uppercase" href="/curlaygurlay/checkout/paypal">Checkout</a>
+          </div>
+
+          <!-- <div id="paypal-button-container"></div>
+
+            <script>
+              paypal.Buttons().render('#paypal-button-container');
+            </script>
+
+            <script>
+              paypal.Buttons({
+                createOrder: function (data, actions) {
+                  // Set up the transaction
+                  return actions.order.create({
+                    purchase_units: [{
+                      amount: {
+                        value: '0.01'
+                      }
+                    }]
+                  });
+                }
+              }).render('#paypal-button-container');
+            </script>
+
+            <script>
+              paypal.Buttons({
+                createOrder: function (data, actions) {
+                  return actions.order.create({
+                    purchase_units: [{
+                      amount: {
+                        value: '0.01'
+                      }
+                    }]
+                  });
+                },
+                onApprove: function (data, actions) {
+                  // Capture the funds from the transaction
+                  return actions.order.capture().then(function (details) {
+                    // Show a success message to your buyer
+                    alert('Transaction completed by ' + details.payer.name.given_name);
+                  });
+                }
+              }).render('#paypal-button-container');
+            </script>
+
+            <script>
+              paypal.Buttons({
+                createOrder: function (data, actions) {
+                  return actions.order.create({
+                    purchase_units: [{
+                      amount: {
+                        value: '0.01'
+                      }
+                    }]
+                  });
+                },
+                onApprove: function (data, actions) {
+                  return actions.order.capture().then(function (details) {
+                    alert('Transaction completed by ' + details.payer.name.given_name);
+                    // Call your server to save the transaction
+                    return fetch('/paypal-transaction-complete', {
+                      method: 'post',
+                      headers: {
+                        'content-type': 'application/json'
+                      },
+                      body: JSON.stringify({
+                        orderID: data.orderID
+                      })
+                    });
+                  });
+                }
+              }).render('#paypal-button-container');
+            </script>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </body>
 
 </html>

@@ -5,6 +5,7 @@ import bcrypt
 
 from django.core.paginator import Paginator
 
+
 localCart = {
     'cart' : []
 }
@@ -55,7 +56,6 @@ def logout(request):
 #################################################
 #                ACCOUNT PAGE
 #################################################
-
 def account_page(request):
     return render(request, 'first_app/account_page.html')
 
@@ -143,18 +143,6 @@ def products_page(request):
 
     return render(request, 'first_app/products_page.html', {'products' : products})
 
-<<<<<<< HEAD
-=======
-def blog_page(request):
-    return render(request, 'first_app/blog_page.html')
-
-def account_page(request):
-    context={
-        'user':User.objects.get(id=request.session['id'])
-    }
-    return render(request, 'first_app/account_page.html', context)
->>>>>>> 3cde0522641c5b768ac635769afde50a1e609588
-
 #################################################
 #               SHOPPING CART PAGE
 #################################################
@@ -177,10 +165,10 @@ def addToCart(request, product_id):
         #     'userid' : request.session['id'],
         #     'cart_items': []
         # }
-        cartObj = [
-            {'cart' : []}
-        ]
-        request.session['cart'] = cartObj
+        # cartObj = [
+        #     {'cart' : []}
+        # ]
+        request.session['cart'] = []
     else :
         print("In adding to cart route")
         prod  = Product.objects.get(id= product_id)
@@ -195,8 +183,24 @@ def addToCart(request, product_id):
         # request.session['cart'] = cart
         # print('*'*80)
 
-        localCart['cart'].append(prod)
-        print(localCart)
+        request.session['cart'].append(prod)
+        print()
+        print(request.session['cart'])
+        # localCart['cart'].append(prod)
+        # print(localCart)
     # print(request.session['cart'])
 
     return redirect("/curlaygurlay/loose_curl")
+
+#################################################
+#               Checkout Page
+#################################################
+def checkout_page(request):
+    return render (request, 'first_app/checkout_page.html')
+
+#################################################
+#               Paypal Page
+#################################################
+def paypal_page(request):
+    return render (request, 'first_app/paypal_page.html')
+

@@ -19,6 +19,8 @@
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'first_app/css/products_page.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
 
     <title>CurlayGurlay - Products Page</title>
 
@@ -40,48 +42,46 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
                 <li class='button'>
-                        <a class="btn btn-secondary" href="/curlaygurlay/cart">Cart</a>
+                    <a class="btn btn-secondary" href="/curlaygurlay/cart">Cart</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div class="container alighn-center">
-        <div class="product row">
+    <p class='header text-center'>Gurlay with the Kinky Curlay</p>
+    <div class="container align-center">
+        <div class="row">
             {% for product in products %}
-            <div class="mr-5 text-center">
-                <img src="/static/first_app/images/{{ product.img_url }}" class="image" alt="">
-                <div class="middle">
-                    <div class="text">
-                        <a href="/curlaygurlay/cart">Add to Cart</a>
-                    </div>
+            <div class="product mr-5 text-center">
+                <img class="image" src="/static/first_app/images/{{ product.img_url }}" alt="">
                 <p class="mt-4">{{ product.product_name }}</p>
                 <p>{{ product.description }}</p>
                 <p>${{ product.price }}</p>
-                </div>
+                <a href="/addToCart/{{product.id}}" class="btn btn-secondary">Add to Cart</a>
             </div>
             {% endfor %}
         </div>
+    </div>
 
-        <div class="products_list">
-            <div class="pagination">
-                <span class="step-links alighn-center">
-                    {% if products.has_previous %}
-                    <a class="btn btn-secondary" href="?page=1">&laquo; first</a>
-                    <a class="btn btn-secondary mr-4" href="?page={{ products.previous_page_number }}">previous</a>
-                    {% endif %}
+    <div class="products_list mt-5">
+        <div class="pagination">
+            <span class="step-links">
+                {% if products.has_previous %}
+                <a class="btn btn-secondary" href="?page=1">&laquo; first</a>
+                <a class="btn btn-secondary mr-4" href="?page={{ products.previous_page_number }}">previous</a>
+                {% endif %}
 
-                    <span class="current">
-                        <p>Page {{ products.number }} of {{ products.paginator.num_pages }}</p>
-                    </span>
-
-                    {% if products.has_next %}
-                    <a class="btn btn-secondary ml-4" href="?page={{ products.next_page_number }}">next</a>
-                    <a class="btn btn-secondary" href="?page={{ products.paginator.num_pages }}">last &raquo;</a>
-                    {% endif %}
+                <span class="current">
+                    <p>Page {{ products.number }} of {{ products.paginator.num_pages }}</p>
                 </span>
-            </div>
 
+                {% if products.has_next %}
+                <a class="btn btn-secondary ml-4" href="?page={{ products.next_page_number }}">next</a>
+                <a class="btn btn-secondary" href="?page={{ products.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
         </div>
+
+    </div>
     </div>
 </body>
 

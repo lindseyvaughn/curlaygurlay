@@ -42,13 +42,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/curlaygurlay/login_register">Register | Login</a>
                 </li>
-<<<<<<< HEAD
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
-=======
                 <li class='button'>
                         <a class="btn btn-secondary" href="/curlaygurlay/cart">Cart</a>
->>>>>>> 3cde0522641c5b768ac635769afde50a1e609588
                 </li>
             </ul>
         </div>
@@ -59,7 +56,7 @@
         <div class="product">
             {% for product in products %}
             <div class="product">
-                <img src="/static/first_app/images/{{ product.img_url }}" alt="">
+                <img src="/static/first_app/images/{{ product.img_url }}" class="image" alt="">
                 <p class="top">{{product.product_name}}</p>
                 <p>{{product.description}}</p>
                 <p>${{product.price}}</p>
