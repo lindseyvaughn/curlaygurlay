@@ -4,12 +4,13 @@ urlpatterns = [
     url(r'^admin$', views.admin),
     url(r'^create_product$', views.create_product),
 
-    url(r'^curlaygurlay/login_register$', views.login_register_page),
+
     url(r'^register_user$', views.register_user),
     url(r'^login_user$', views.login_user),
-    url(r'^logout$', views.logout),
+    url(r'^logout', views.logout),
 
     url(r'^curlaygurlay$', views.home_page),
+    url(r'^curlaygurlay/login_register$', views.login_register_page),
     url(r'^curlaygurlay/loose_curl$', views.loose_curl_page),
     url(r'^curlaygurlay/tight_curl$', views.tight_curl_page),
     url(r'^curlaygurlay/kinky_curl$', views.kinky_curl_page),
