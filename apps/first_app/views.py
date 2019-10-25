@@ -12,8 +12,11 @@ from django.core.paginator import Paginator
 #################################################
 #               LOGIN/REGISTRATION
 #################################################
-def login_register_page(request):
+def register_page(request):
     return render (request, 'first_app/login_register_page.html')
+
+def login_page(request):
+    return render ( request, 'first_app/sign_in.html')
 
 def register_user(request):
     if request.method == "POST":
@@ -209,7 +212,4 @@ def checkout_page(request):
 #################################################
 def paypal_page(request):
     return render (request, 'first_app/paypal_page.html')
-
-def signin(request):
-    return render ( request, 'first_app/sign_in.html')
 

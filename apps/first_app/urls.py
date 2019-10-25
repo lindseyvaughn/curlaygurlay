@@ -4,7 +4,9 @@ urlpatterns = [
     url(r'^admin$', views.admin),
     url(r'^create_product$', views.create_product),
 
-    url(r'^curlaygurlay/login_register$', views.login_register_page),
+    url(r'^curlaygurlay/register$', views.register_page),
+    url(r'^curlaygurlay/login$', views.login_page),
+
     url(r'^register_user$', views.register_user),
     url(r'^login_user$', views.login_user),
     url(r'^logout', views.logout),
@@ -30,7 +32,6 @@ urlpatterns = [
 
     url(r'^curlaygurlay/checkout$', views.checkout_page),
     url(r'^curlaygurlay/checkout/paypal$', views.paypal_page),
-    url(r'^curlaygurlay/signin$', views.signin)
 
 
 ]
