@@ -210,3 +210,6 @@ def checkout_page(request):
 def paypal_page(request):
     return render (request, 'first_app/paypal_page.html')
 
+def signin(request):
+    return render ( request, 'first_app/sign_in.html')
+
