@@ -152,6 +152,8 @@ def products_page(request):
 def shopping_cart_page(request):
     print(request.session['cart'])
 
+    
+
     cart = []
     total = 0
 
