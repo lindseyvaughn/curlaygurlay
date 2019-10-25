@@ -28,6 +28,7 @@ urlpatterns = [
 
     url(r'^curlaygurlay/checkout$', views.checkout_page),
     url(r'^curlaygurlay/checkout/paypal$', views.paypal_page),
+    url(r'^curlaygurlay/signin$', views.signin)
 
 
 ]
