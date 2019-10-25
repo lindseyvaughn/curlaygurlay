@@ -157,6 +157,7 @@ def products_page(request):
 #               SHOPPING CART PAGE
 #################################################
 def shopping_cart_page(request):
+
     if 'id' in request.session:
         cart = []
         total = 0
@@ -173,6 +174,7 @@ def shopping_cart_page(request):
         return render(request, 'first_app/shopping_cart_page.html', context)
     else:
         return redirect('/curlaygurlay/register')
+
 
 def addToCart(request, product_id):
     if 'id' not in request.session:

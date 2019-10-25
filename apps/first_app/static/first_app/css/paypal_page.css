@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(189, 231, 245);
+}
+.pay{
+    position: relative;
+    left: 100px;
+}
+p{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px;
+    margin-top: 30px;
+}
