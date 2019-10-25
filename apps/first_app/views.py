@@ -60,7 +60,14 @@ def logout(request):
 #                ACCOUNT PAGE
 #################################################
 def account_page(request):
-    return render(request, 'first_app/account_page.html')
+    if 'id' in request.session:
+        context = {
+            "user" : User.objects.get(id=request.session['id'])
+        }
+
+        return render(request, 'first_app/account_page.html', context)
+    else:
+        return redirect('/curlaygurlay/register')
 
 
 #################################################
@@ -150,24 +157,23 @@ def products_page(request):
 #               SHOPPING CART PAGE
 #################################################
 def shopping_cart_page(request):
-    print(request.session['cart'])
+    if 'id' in request.session:
+        cart = []
+        total = 0
+        if 'cart' in request.session:
+            for product_id in request.session['cart']:
+                prod = Product.objects.get(id=product_id)
+                cart.append(prod)
+                total += prod.price
+        context = {
+            'total' : total,
+            'prods' : cart,
+            "user" : User.objects.get(id=request.session['id'])
+        }
+        return render(request, 'first_app/shopping_cart_page.html', context)
+    else:
+        return redirect('/curlaygurlay/register')
 
-    cart = []
-    total = 0
-
-    for product_id in request.session['cart']:
-        prod = Product.objects.get(id=product_id)
-        cart.append(prod)
-        total += prod.price
-
-    context = {
-        'total' : total,
-        'prods' : cart
-    }
-    return render (request, 'first_app/shopping_cart_page.html', context)
-#################################################
-#               ADD TO CART ROUTE
-#################################################
 def addToCart(request, product_id):
     if 'id' not in request.session:
         return redirect ("/curlaygurlay/login_register")
